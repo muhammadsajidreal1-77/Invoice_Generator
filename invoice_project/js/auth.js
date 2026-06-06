@@ -71,9 +71,11 @@ function handleSignup(event) {
         } else{
             errorMsg.innerText = data.message;
             errorMsg.style.display = 'block';
-            
         }
-        
+    })
+    .catch(error => {
+        errorMsg.innerText = 'Server Error: Please check if XAMPP MySQL is running!';
+        errorMsg.style.display = 'block';
     });
 
 }
@@ -108,5 +110,9 @@ function handleLogin(event) {
             errorMsg.innerText = data.message;
             errorMsg.style.display = 'block';
         }
+    })
+    .catch(error => {
+        errorMsg.innerText = 'Server Error: Please check if XAMPP MySQL is running!';
+        errorMsg.style.display = 'block';
     });
 }

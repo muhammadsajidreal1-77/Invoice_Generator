@@ -3,7 +3,7 @@
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
-
+error_reporting(0);
 
 
 

@@ -4,6 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 
+/* 
+   GLOBAL STYLES (Applies to all files: index.html, login.html, signup.html)
+  */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -17,6 +20,9 @@ body {
 }
 
 
+/* 
+   AUTH PAGES STYLING (Applies to: login.html & signup.html)
+*/
 .auth-wrapper {
     display: flex;
     justify-content: center;
@@ -204,6 +210,9 @@ body {
 }
 
 
+/* 
+   INVOICE PAGE STYLING (Applies to: index.html)
+   */
 .container {
     max-width: 900px;
     margin: auto;
