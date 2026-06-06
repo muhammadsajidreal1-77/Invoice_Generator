@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Invoice Generator</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+
+    <div class="top-bar">
+        <div>
+            <h1>Invoice Generator</h1>
+            <p class="welcome-text">Welcome, <span id="welcomeName">Vendor</span></p>
+        </div>
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+    
+
+    <p class="section-label">Customer Details</p>
+    <div class="controls customer-controls">
+        <input type="text" id="customerNameInput" placeholder="Customer Name" onkeyup="updateCustomer()">
+        <input type="text" id="customerAddressInput" placeholder="Customer Address" onkeyup="updateCustomer()">
+        <input type="text" id="customerPhoneInput" placeholder="Customer Phone" onkeyup="updateCustomer()">
+    </div>
+
+
+
+
+    <p class="section-label">Add Items</p>
+    <div class="controls item-controls">
+        <input type="text" id="itemName" placeholder="Item Name (e.g. Laptop)">
+        <input type="number" id="itemPrice" placeholder="Price (RS.)">
+        <input type="number" id="itemQty" placeholder="Qty" value="1">
+        <button class="add-btn" onclick="addItem()">+ Add</button>
+    </div>
+
+
+
+
+    <div class="invoice-box" id="invoice">
+        <div class="header">
+            <div>
+                <h2 id="companyNameDisplay">YOUR COMPANY INC.</h2>
+                <p id="companyAddressDisplay">123 Business Road, Tech City</p>
+            </div>
+            <div style="text-align: right;">
+                <h2 class="invoice-title">INVOICE</h2>
+                <p>Date: <span id="date"></span></p>
+                <div id="statusBadge" style="display: inline-block; padding: 5px 12px; margin-top: 5px; border-radius: 20px; font-weight: bold; font-size: 12px; background: #fab1a0; color: #d63031;">Unpaid</div>
+            </div>
+        </div>
+
+        <div class="bill-to">
+            <h3>Bill To</h3>
+            <strong id="customerNameDisplay">Customer Name</strong><br>
+            <span id="customerAddressDisplay">Customer Address</span><br>
+            <span id="customerPhoneDisplay">Phone Number</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Description</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="itemList">
+           
+
+
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" style="text-align: right;">Sub Total:</td>
+                    <td>RS. <span id="subTotal">0</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right;">Tax (+):</td>
+                    <td>RS. <span id="taxDisplay">0</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right;">Discount (-):</td>
+                    <td>RS. <span id="discountDisplay">0</span></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3" style="text-align: right;">Grand Total:</td>
+                    <td class="total-amount">RS. <span id="grandTotal">0</span></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+
+
+    <p class="section-label">Settings (Tax & Discount)</p>
+    <div class="controls item-controls">
+        <input type="number" id="taxInput" placeholder="Tax % (e.g. 18)" value="0" onkeyup="updateGrandTotal()">
+        <input type="number" id="discountInput" placeholder="Discount (RS.)" value="0" onkeyup="updateGrandTotal()">
+        <select id="statusSelect" onchange="updateStatus()" style="padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.1); font-family: 'Inter'; outline: none;">
+            <option value="Paid" style="color: black;">Paid</option>
+            <option value="Unpaid" style="color: black;" selected>Unpaid</option>
+            <option value="Pending" style="color: black;">Pending</option>
+        </select>
+    </div>
+
+
+
+
+    <div class="action-buttons">
+        <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+        <button class="reset-btn" onclick="resetInvoice()">Reset Bill</button>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<script src="js/script.js?v=2"></script>
+
+</body>
+</html>
